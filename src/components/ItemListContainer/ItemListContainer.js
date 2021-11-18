@@ -6,39 +6,39 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 
 const itemData = [
     {
-      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/components/images/AlienCogo.png?raw=true', 
+      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/assests/images/AlienCogo.png?raw=true', 
       title: 'AlienCogo',
     },
     {
-      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/components/images/BartExplode.png?raw=true',
+      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/assests/images/BartExplode.png?raw=true',
       title: 'BartExplode',
     },
     {
-      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/components/images/BurbujaHigh.png?raw=true',
+      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/assests/images/BurbujaHigh.png?raw=true',
       title: 'BurbujaHigh',
     },
     {
-      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/components/images/ChicasSP.png?raw=true',
+      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/assests/images/ChicasSP.png?raw=true',
       title: 'ChicasSP',
     },
     {
-      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/components/images/CogoAngel.png?raw=true',
+      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/assests/images/CogoAngel.png?raw=true',
       title: 'CogoAngel',
     },
     {
-      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/components/images/Excursio.png?raw=true',
+      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/assests/images/Excursio.png?raw=true',
       title: 'Excursio',
     },
     {
-      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/components/images/Mariposa.png?raw=true',
+      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/assests/images/Mariposa.png?raw=true',
       title: 'Mariposa',
     },
     {
-      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/components/images/MoneyBag.png?raw=true',
+      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/assests/images/MoneyBag.png?raw=true',
       title: 'MoneyBag',
     },
     {
-      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/components/images/Vokita.png?raw=true',
+      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/assests/images/Vokita.png?raw=true',
       title: 'Vokita',
     },
     {
