@@ -16,10 +16,10 @@ function ItemCount () {
         console.log(number +'  Producto agregado')
     };
     const numberMenos = () => {
-        
+        if (number > 0){
         setNumber (number-1)
         console.log(number +'  Producto eliminado')
-    };
+    }};
     return(
    
         <Box
