@@ -1,43 +1,45 @@
 import React from "react";
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
+import { ImageListItemBar, IconButton } from "@mui/material";
+import StarBorderIcon from '@mui/icons-material/StarBorder';
 
 const itemData = [
     {
-      img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-      title: 'Breakfast',
+      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/components/images/AlienCogo.png?raw=true', 
+      title: 'AlienCogo',
     },
     {
-      img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-      title: 'Burger',
+      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/components/images/BartExplode.png?raw=true',
+      title: 'BartExplode',
     },
     {
-      img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
-      title: 'Camera',
+      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/components/images/BurbujaHigh.png?raw=true',
+      title: 'BurbujaHigh',
     },
     {
-      img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-      title: 'Coffee',
+      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/components/images/ChicasSP.png?raw=true',
+      title: 'ChicasSP',
     },
     {
-      img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
-      title: 'Hats',
+      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/components/images/CogoAngel.png?raw=true',
+      title: 'CogoAngel',
     },
     {
-      img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
-      title: 'Honey',
+      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/components/images/Excursio.png?raw=true',
+      title: 'Excursio',
     },
     {
-      img: 'https://images.unsplash.com/photo-1516802273409-68526ee1bdd6',
-      title: 'Basketball',
+      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/components/images/Mariposa.png?raw=true',
+      title: 'Mariposa',
     },
     {
-      img: 'https://images.unsplash.com/photo-1518756131217-31eb79b20e8f',
-      title: 'Fern',
+      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/components/images/MoneyBag.png?raw=true',
+      title: 'MoneyBag',
     },
     {
-      img: 'https://images.unsplash.com/photo-1597645587822-e99fa5d45d25',
-      title: 'Mushrooms',
+      img: 'https://github.com/FacuP11/HydrusResin-PonceBritos/blob/master/src/components/images/Vokita.png?raw=true',
+      title: 'Vokita',
     },
     {
       img: 'https://images.unsplash.com/photo-1567306301408-9b74779a11af',
@@ -52,21 +54,66 @@ const itemData = [
       title: 'Bike',
     },
   ];
+
+
 function ItemListContainer() {
+
+    function srcset(image, width, height, rows = 1, cols = 1) {
+        return {
+          src: `${image}?w=${width * cols}&h=${height * rows}&fit=crop&auto=format`,
+          srcSet: `${image}?w=${width * cols}&h=${
+            height * rows
+          }&fit=crop&auto=format&dpr=2 2x`,
+        };
+      }
+
     return(
         <div>
-            <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
-      {itemData.map((item) => (
-        <ImageListItem key={item.img}>
-          <img
-            src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-            srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-            alt={item.title}
-            loading="lazy"
-          />
-        </ImageListItem>
-      ))}
+            
+    <ImageList
+      sx={{
+        width: 550,
+        height: 500,
+        // Promote the list into its own layer in Chrome. This costs memory, but helps keeping high FPS.
+        transform: 'translateZ(0)',
+      }}
+      rowHeight={300}
+      gap={1}
+    >
+      {itemData.map((item) => {
+        const cols = item.featured ? 2 : 1;
+        const rows = item.featured ? 2 : 1;
+
+        return (
+          <ImageListItem key={item.img} cols={cols} rows={rows}>
+            <img
+              {...srcset(item.img, 250, 200, rows, cols)}
+              alt={item.title}
+              loading="lazy"
+            />
+            <ImageListItemBar
+              sx={{
+                background:
+                  'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, ' +
+                  'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+              }}
+              title={item.title}
+              position="top"
+              actionIcon={
+                <IconButton
+                  sx={{ color: 'white' }}
+                  aria-label={`star ${item.title}`}
+                >
+                  <StarBorderIcon />
+                </IconButton>
+              }
+              actionPosition="left"
+            />
+          </ImageListItem>
+        );
+      })}
     </ImageList>
+  )
  
         </div>
     )
