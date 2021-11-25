@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import Button from '@mui/material/Button';
 
-import Chip from '@mui/material/Chip';
-import Stack from '@mui/material/Stack';
+
 import { Box } from "@mui/system";
 
 
@@ -24,13 +23,15 @@ function ItemCount () {
    
         <Box
         sx={{
-            color:'white'
+            color:'black',
+            display:'flex',
+
         }}>
-        <h1> Cantidad </h1> 
+        <h6> Cantidad: </h6> 
         <Box sx={{
             display:'flex',
             flexDirection:'row',
-            color: 'white'
+            color: 'black'
             
         }}>
         <Button onClick={numberMenos}> - </Button>
