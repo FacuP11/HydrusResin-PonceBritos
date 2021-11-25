@@ -3,7 +3,7 @@ import { Card, CardMedia, Typography, CardActions, Button, CardContent, CardActi
 import ItemCount from '../ItemCount/ItemCount'
 
 function Item({info}) {
-
+    const props= info;
     
     return (
         <div>
@@ -27,7 +27,7 @@ function Item({info}) {
                         $ {info.precio}
                     </Button>
                 </CardActions>
-                <ItemCount />
+                <ItemCount info={props}/>
             </Card>
         </div>
     )

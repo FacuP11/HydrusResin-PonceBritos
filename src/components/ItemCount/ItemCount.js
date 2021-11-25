@@ -6,13 +6,14 @@ import { Box } from "@mui/system";
 
 
 
-function ItemCount () {
-
+function ItemCount ({info}) {
+    console.log(info.stock)
     const  [number, setNumber] = useState(0);
     
     const numberMas = () => {
+        if (info.stock > number){
         setNumber (number+1)
-        console.log(number +'  Producto agregado')
+        console.log(number +'  Producto agregado')}
     };
     const numberMenos = () => {
         if (number > 0){
