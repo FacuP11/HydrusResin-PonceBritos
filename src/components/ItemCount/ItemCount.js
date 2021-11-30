@@ -7,7 +7,7 @@ import { Box } from "@mui/system";
 
 
 function ItemCount ({info}) {
-    console.log(info.stock)
+    
     const  [number, setNumber] = useState(0);
     
     const numberMas = () => {
@@ -39,7 +39,7 @@ function ItemCount ({info}) {
         <p>{number}</p>
         <Button onClick={numberMas}> + </Button>
         <br />
-        <Button color="secondary">Agregar al carrito</Button>
+        <Button color="secondary" >Agregar al carrito</Button>
         </Box>
     </Box>
     )

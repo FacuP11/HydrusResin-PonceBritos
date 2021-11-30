@@ -1,35 +1,49 @@
 import React from "react";
-import { Card, CardMedia, Typography, CardActions, Button, CardContent, CardActionArea } from "@mui/material";
-import ItemCount from '../ItemCount/ItemCount'
+import { Card, CardMedia, Typography, Button, CardContent, CardActionArea } from "@mui/material";
 
-function Item({info}) {
-    const props= info;
-    
+import { Box } from "@mui/system";
+
+
+function Item ({ info }) {
+   
+
     return (
-        <div>
-            <Card sx={{ maxWidth: 345 }}>
+        <Box>
+       
+            <Card sx={{ maxWidth: 400 }}>
+
                 <CardActionArea>
                     <CardMedia
                         component="img"
-                        height="140"
+                        height="200"
                         image={info.image}
                         alt={info.id}
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            {info.name}
-                        </Typography>
                         
+                    />
+                    <Box
+                            sx={{
+                                
+                                display: 'flex',
+                                justifyContent:'center'
+
+                            }}>
+                    <CardContent>
+                        
+                        <Typography gutterBottom variant="h5" component="div">
+                    {info.name}
+                        </Typography>
+
                     </CardContent>
-                </CardActionArea>
-                <CardActions>
+
                     <Button size="small" color="secondary">
                         $ {info.precio}
                     </Button>
-                </CardActions>
-                <ItemCount info={props}/>
-            </Card>
-        </div>
+                    </Box>
+                </CardActionArea>
+                    
+            
+        </Card>
+        </Box>
     )
 }
 

@@ -11,7 +11,10 @@ function ItemList() {
     <div>
       {items.map( (data) => {
         return(
+        <>
           <Item key={data.id} info={data}/>
+          <br />
+          </>
         )
       })}
       
