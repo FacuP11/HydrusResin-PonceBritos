@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import  items  from '../productos';
 
@@ -10,19 +10,22 @@ const getItem = (id) => {
     })
 }
 const ItemDetailContainer = () => {
-    useEffect(() => {
-        setTimeout (()=>{
+    const [product, setProduct] = useState({})
 
-        
-        getItem(3)
-        .then(res=> {
-            console.log(res)
-        },[])
+    useEffect(() => {
+        setTimeout (()=>{    
+            getItem(5)
+            .then(res=> {
+                setProduct(res)
+            })
         },2000)
-    })
-return(
-<ItemDetail info={data}/>
-)
+    }, [])
+
+    return(
+    <ItemDetail info={product}/>
+    )
 }
+
+
 
 export default ItemDetailContainer;

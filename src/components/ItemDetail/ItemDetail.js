@@ -4,6 +4,7 @@ import ItemCount from "../ItemCount/ItemCount"
 import { Box } from "@mui/system";
 
 function ItemDetail({info}) {
+    const n = info.id;
     return (
         <div>
             <Box>
@@ -15,7 +16,7 @@ function ItemDetail({info}) {
                             component="img"
                             height="200"
                             image={info.image}
-                            alt={info[1].id}
+                            alt={info.id}
 
                         />
                         <Box
