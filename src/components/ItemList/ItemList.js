@@ -1,4 +1,5 @@
 import React from "react";
+
 import Item from "../Item/Item";
 import  items  from '../productos';
 
@@ -12,8 +13,14 @@ function ItemList() {
       {items.map( (data) => {
         return(
         <>
-          <Item key={data.id} info={data}/>
+          
+          <Item key={data.desc} info={data}>
+          
+          </Item> 
+          
+       
           <br />
+          
           </>
         )
       })}

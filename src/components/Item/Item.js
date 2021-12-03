@@ -1,6 +1,6 @@
 import React from "react";
-import { Card, CardMedia, Typography, Button, CardContent, CardActionArea } from "@mui/material";
-
+import { Card, CardMedia, Typography, Button, CardContent } from "@mui/material";
+import { Link } from "react-router-dom";
 import { Box } from "@mui/system";
 
 
@@ -8,11 +8,13 @@ function Item ({ info }) {
    
 
     return (
+        <>
         <Box>
        
             <Card sx={{ maxWidth: 400 }}>
 
-                <CardActionArea>
+                
+                 <Link to={`item/${info.id}`}> 
                     <CardMedia
                         component="img"
                         height="200"
@@ -39,11 +41,15 @@ function Item ({ info }) {
                         $ {info.precio}
                     </Button>
                     </Box>
-                </CardActionArea>
+                    
+                     </Link> 
+                   
+                
                     
             
         </Card>
         </Box>
+        </>
     )
 }
 

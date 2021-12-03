@@ -4,7 +4,8 @@ import ItemCount from "../ItemCount/ItemCount"
 import { Box } from "@mui/system";
 
 function ItemDetail({info}) {
-    const n = info.id;
+    
+    
     return (
         <div>
             <Box>
