@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
-
-
 import ItemDetail from "../ItemDetail/ItemDetail";
 import  items  from '../productos';
 import { useParams } from "react-router";
 const data = items;
 
 
-const getItem = (id) => {
+const getId = (id) => {
     return new Promise (res => {
-        res(data.find(data => data.id === id))
-        
-    })
+        res(data.find(data => data.id === Number(id)))
+        })
 }
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState({});
@@ -20,13 +17,10 @@ const ItemDetailContainer = () => {
     
       useEffect(() => {
           setLoader(true) 
-        
           setTimeout (()=>{
-            getItem(id)
-            
+            getId(id)
             .then(res=> {
                 setProduct(res)
-                console.log(product)
                 setLoader(false)
             }) 
         },2000)
@@ -34,7 +28,7 @@ const ItemDetailContainer = () => {
 
     return(
         <>
-        {loader ? <h2 > Cargando...</h2> : <ItemDetail info={product}/> }
+        { loader ? <h2 > Cargando...</h2> : <ItemDetail info={product}/> }
     </>
     )
 }

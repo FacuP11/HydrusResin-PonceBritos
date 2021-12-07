@@ -1,15 +1,16 @@
 import React from "react";
-
+import { Box } from "@mui/system";
 import Item from "../Item/Item";
 import  items  from '../productos';
 
 
-
 function ItemList() {
-
+  
 
   return (
-    <div>
+    <Box sh={{
+      display:'flex'
+    }}>
       {items.map( (data) => {
         return(
         <>
@@ -25,7 +26,7 @@ function ItemList() {
         )
       })}
       
-    </div>
+    </Box>
   );
 }
 

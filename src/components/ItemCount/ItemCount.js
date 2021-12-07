@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 import Button from '@mui/material/Button';
-
+import { Link } from "react-router-dom";
 
 import { Box } from "@mui/system";
+
 
 
 
@@ -13,13 +14,22 @@ function ItemCount ({info}) {
     const numberMas = () => {
         if (info.stock > number){
         setNumber (number+1)
-        console.log(number +'  Producto agregado')}
+        console.log( ` Producto agregado, tienes en total ${number+1}` )}
     };
     const numberMenos = () => {
         if (number > 0){
         setNumber (number-1)
-        console.log(number +'  Producto eliminado')
+        console.log( ` Producto restado, tienes en total ${number-1}` )
     }};
+    
+    
+    const [cart, setCart] = useState ({});
+    const handleCLick = () => {
+        console.log(info.name , info.precio + 'unidad ', ` Cantidad : ${number}`, ` Precio total${number * info.precio}`);
+        
+        console.log(cart);
+        
+    }
     return(
    
         <Box
@@ -36,10 +46,12 @@ function ItemCount ({info}) {
             
         }}>
         <Button onClick={numberMenos}> - </Button>
-        <p>{number}</p>
+        <p  >{number}</p>
         <Button onClick={numberMas}> + </Button>
         <br />
-        <Button color="secondary" >Agregar al carrito</Button>
+        <Link to={'/cart'}>
+                    <Button color="secondary" onClick={handleCLick} > Agregar al carrito </Button>
+        </Link>
         </Box>
     </Box>
     )

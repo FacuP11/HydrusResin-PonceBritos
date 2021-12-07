@@ -3,38 +3,42 @@ import { Card, CardMedia, Typography, Button, CardContent, CardActionArea } from
 import ItemCount from "../ItemCount/ItemCount"
 import { Box } from "@mui/system";
 
-function ItemDetail({info}) {
+
+function ItemDetail ({ info }) {
+
     
-    
+
+
     return (
         <div>
-            <Box>
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'center'
 
+                }}>
                 <Card sx={{ maxWidth: 400 }}>
-
                     <CardActionArea>
                         <CardMedia
                             component="img"
                             height="200"
                             image={info.image}
                             alt={info.id}
-
                         />
                         <Box
                             sx={{
-
                                 display: 'flex',
                                 justifyContent: 'center'
-
                             }}>
                             <CardContent>
 
                                 <Typography gutterBottom variant="h4" component="div">
                                     {info.name}
                                 </Typography>
-
+                                <Typography>
+                                    {info.desc}
+                                </Typography>
                             </CardContent>
-
                             <Button size="small" color="secondary">
                                 $ {info.precio}
                             </Button>
@@ -42,6 +46,7 @@ function ItemDetail({info}) {
                     </CardActionArea>
 
                     <ItemCount info={info} />
+                    
                 </Card>
             </Box>
         </div>

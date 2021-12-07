@@ -9,7 +9,12 @@ function Item ({ info }) {
 
     return (
         <>
-        <Box>
+        <Box
+        sx={{ 
+            margin:5,
+            display:'flex',
+           flexDirection:'column'
+        }}>
        
             <Card sx={{ maxWidth: 400 }}>
 
@@ -19,16 +24,9 @@ function Item ({ info }) {
                         component="img"
                         height="200"
                         image={info.image}
-                        alt={info.id}
-                        
+                        alt={info.id}    
                     />
-                    <Box
-                            sx={{
-                                
-                                display: 'flex',
-                                justifyContent:'center'
-
-                            }}>
+                    <Box>
                     <CardContent>
                         
                         <Typography gutterBottom variant="h5" component="div">
