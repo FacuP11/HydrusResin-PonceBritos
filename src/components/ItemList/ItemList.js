@@ -4,22 +4,19 @@ import Item from "../Item/Item";
 import  items  from '../productos';
 
 
-function ItemList() {
+function ItemList({data}) {
   
 
   return (
     <Box sh={{
       display:'flex'
     }}>
-      {items.map( (data) => {
+      <h2> Productos </h2>
+      {data.map( (prod) => {
         return(
         <>
           
-          <Item key={data.desc} info={data}>
-          
-          </Item> 
-          
-       
+          <Item key={prod.id} info={prod} {...prod} />
           <br />
           
           </>

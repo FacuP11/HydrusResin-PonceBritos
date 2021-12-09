@@ -1,50 +1,51 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import ItemList from '../ItemList/ItemList';
 import { Box } from "@mui/system";
-import items from "../productos";
-const data = items;
+
+import LoadingButton from '@mui/lab/LoadingButton';
+import pedirDatos from "../../helpers/pedirDatos";
 
 
-const getCategory = (categoryId) => {
-  
-  return new Promise ( res => {
-      res(data.find(data => data.category === String(categoryId) ))
-      console.log('Category:' + categoryId)})
-}
+
 const ItemListContainer = () => {
-  const [product, setProduct] = useState({});
-  const [loader, setLoader] = useState (false);
-  const {categoryId} = useParams();
   
-    useEffect(() => {
-        setLoader(true) 
-      
-        setTimeout (()=>{
-          getCategory(categoryId)
-              .then(res=> {
-          
-                setProduct(res)
-                console.log('Producto:' + product)
-                setLoader(false)
-              
-          }) 
-      },2000)
-  }, [])
+const [loader, setLoader] = useState(false);
+const [productos, setProductos] = useState([]);
+const { categoryId } = useParams();
 
-  return (
-    
-      <Box
-      sx={
-        {
-          display:'flex'
+  useEffect(() => {
+
+    setLoader(true)
+
+    pedirDatos()
+      .then((resp) => {
+        if (!categoryId) {
+          setProductos(resp)
+        } else {
+          setProductos(resp.filter(prod => prod.category === categoryId))
         }
-      }>
-        {loader ? <h2 > Cargando...</h2> : <ItemList info={product}/> }
-      </Box>
-    
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+      .finally(() => {
+        setLoader(false)
+      })
 
-  );
+  }, [categoryId])
+  return (
+    <>
+        {
+            loader 
+                ? <LoadingButton loading variant="outlined">
+                  Submit
+                  </LoadingButton>
+                : <ItemList data={productos}/>
+        }
+    </>
+)
+
 }
 export default ItemListContainer;
 
