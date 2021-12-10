@@ -2,12 +2,13 @@ import React from "react";
 import { Card, CardMedia, Typography, Button, CardContent, CardActionArea } from "@mui/material";
 import ItemCount from "../ItemCount/ItemCount"
 import { Box } from "@mui/system";
-
+import {CartContext} from '../../context/CartContext';
+import { useContext } from "react";
 
 function ItemDetail ({ info }) {
 
-    
-
+const agregarAlCarrito = useContext(CartContext);    
+console.log(agregarAlCarrito)
 
     return (
         <div>
@@ -46,7 +47,7 @@ function ItemDetail ({ info }) {
                     </CardActionArea>
 
                     <ItemCount info={info} />
-                    
+                    <Button color="secondary" onClick={agregarAlCarrito} > Agregar al carrito </Button>
                 </Card>
             </Box>
         </div>

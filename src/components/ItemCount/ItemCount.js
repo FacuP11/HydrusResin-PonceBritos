@@ -1,14 +1,13 @@
 import React, {useState} from "react";
 import Button from '@mui/material/Button';
 import { Link } from "react-router-dom";
-
+import { CartContext } from "../../context/CartContext";
 import { Box } from "@mui/system";
-
-
+import { useContext } from "react";
 
 
 function ItemCount ({info}) {
-    
+    const agregarAlCarrito = useContext(CartContext);
     const  [number, setNumber] = useState(0);
     
     const numberMas = () => {
@@ -22,14 +21,6 @@ function ItemCount ({info}) {
         console.log( ` Producto restado, tienes en total ${number-1}` )
     }};
     
-    
-    const [cart, setCart] = useState ({});
-    const handleCLick = () => {
-        console.log(info.name , info.precio + 'unidad ', ` Cantidad : ${number}`, ` Precio total${number * info.precio}`);
-        
-        console.log(cart);
-        
-    }
     return(
    
         <Box
@@ -49,9 +40,9 @@ function ItemCount ({info}) {
         <p  >{number}</p>
         <Button onClick={numberMas}> + </Button>
         <br />
-        <Link to={'/cart'}>
-                    <Button color="secondary" onClick={handleCLick} > Agregar al carrito </Button>
-        </Link>
+        
+               
+       
         </Box>
     </Box>
     )
